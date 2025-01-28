@@ -41,7 +41,7 @@ resource "aws_api_gateway_integration" "upload" {
   http_method = aws_api_gateway_method.upload.http_method
   integration_http_method = "GET"
   type = "AWS_PROXY"
-  uri = aws_lambda_function.fiap44_framer_psgr_upload.invoke_arn
+  uri = data.aws_lambda_function.fiap44_framer_psgr_upload.invoke_arn
 }
 
 resource "aws_api_gateway_method_response" "upload" {
@@ -87,7 +87,7 @@ resource "aws_api_gateway_integration" "download" {
   http_method = aws_api_gateway_method.download.http_method
   integration_http_method = "POST"
   type = "AWS_PROXY"
-  uri = aws_lambda_function.fiap44_framer_psgr_download.invoke_arn
+  uri = data.aws_lambda_function.fiap44_framer_psgr_download.invoke_arn
 }
 
 resource "aws_api_gateway_method_response" "download" {
@@ -126,7 +126,7 @@ resource "aws_api_gateway_deployment" "deployment" {
 resource "aws_lambda_permission" "fiap44_framer_psgr_upload" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.fiap44_framer_psgr_upload.function_name
+  function_name = data.aws_lambda_function.fiap44_framer_psgr_upload.function_name
   principal     = "apigateway.amazonaws.com"
 
   # The /* part allows invocation from any stage, method and resource path
@@ -137,7 +137,7 @@ resource "aws_lambda_permission" "fiap44_framer_psgr_upload" {
 resource "aws_lambda_permission" "fiap44_framer_psgr_download" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.fiap44_framer_psgr_download.function_name
+  function_name = data.aws_lambda_function.fiap44_framer_psgr_download.function_name
   principal     = "apigateway.amazonaws.com"
 
   # The /* part allows invocation from any stage, method and resource path
