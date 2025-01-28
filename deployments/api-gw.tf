@@ -39,7 +39,7 @@ resource "aws_api_gateway_integration" "upload" {
   rest_api_id = aws_api_gateway_rest_api.fiap44.id
   resource_id = aws_api_gateway_resource.upload.id
   http_method = aws_api_gateway_method.upload.http_method
-  integration_http_method = "GET"
+  integration_http_method = "ANY"
   type = "AWS_PROXY"
   uri = data.aws_lambda_function.fiap44_framer_psgr_upload.invoke_arn
 }
