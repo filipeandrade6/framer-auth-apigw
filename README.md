@@ -1,5 +1,7 @@
 # pedeai-lambda
 
+<!-- ativar gh action -->
+
 Repository to provision AWS Lambda function, API Gateway and Cognito onto an existing subnet/vpc using Terraform.
 
 ### How to use
