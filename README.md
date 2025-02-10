@@ -11,12 +11,7 @@ Repository to provision AWS Lambda function, API Gateway and Cognito onto an exi
 
 #### Locally
 
-With *terraform*, *Go* and *aws CLI* installed.
-
-Build the program:
-
-- `cd ./lambda && GOARCH=amd64 GOOS=linux go build -o ../bootstrap main.go`
-- `zip deployment.zip bootstrap`
+With *terraform* and *aws CLI* installed.
 
 Configure aws credentials:
 
